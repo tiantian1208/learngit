@@ -35,5 +35,6 @@ jobs:
           name: output-log-file
       - shell: bash
         run: |
+          pwd
           ls -als /home/runner/work/learngit/learngit
-          cat /home/runner/work/learngit/learngit/output-log-file
+          cat /home/runner/work/learngit/learngit/output.log
