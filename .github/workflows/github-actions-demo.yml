@@ -37,4 +37,5 @@ jobs:
         run: |
           pwd
           ls -als /home/runner/work/learngit/learngit
+          echo "**************************************"
           cat /home/runner/work/learngit/learngit/output.log
