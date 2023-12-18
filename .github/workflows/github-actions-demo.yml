@@ -33,6 +33,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
+      - id: random-number-generator
+        run: echo "random number =$(echo $RANDOM)"
+        shell: bash
       - shell: bash
         run: |
           pwd
