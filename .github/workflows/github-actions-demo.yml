@@ -22,6 +22,7 @@ jobs:
       - run: bats -v
       - name: List files in the repository
         run: |
+          ecoho "git hub workspace: ${{ github.workspace }}"
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - shell: bash
