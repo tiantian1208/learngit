@@ -1,24 +1,26 @@
-name: update
+name: Mixed inputs
+
 on:
-   workflow_dispatch:
-      input:
-        tf-apply:
-            type: boolean
-            description: "Run terraform apply"
-        aws-seconds:
-            type: number
-            default: 1000
-            required: false
-            description: "Duration in seconds"
-        repo-to-deploy:
-            description: "Sngle worksapce"
-            required: false
-            default: "CHINA"
-            type: string
+  workflow_dispatch:
+    inputs:
+      name:
+        type: choice
+        description: Who to greet
+        options: 
+        - monalisa
+        - cschleiden
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: Include 🎉🤣 emojis
+      environment:
+        type: environment
+
 jobs:
-    get-env:
-       runs-on: ubuntu-latest
-       steps:
-          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"  
-          - run: echo "haha---${{ github.event.inputs.repo-to-deploy }}---"  
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send greeting
+      run: echo "${{ github.event.inputs.message }} ${{ fromJSON('["", "🥳"]')[github.event.inputs.use-emoji == 'true'] }} ${{ github.event.inputs.name }}"
