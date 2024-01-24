@@ -1,6 +1,6 @@
 name: update
 on:
-   workflow_call:
+   workflow_dispatch:
       input:
         tf-apply:
             type: boolean
