@@ -4,7 +4,6 @@ on:
       input:
         tf-apply:
             type: boolean
-            default: false
             description: "Run terraform apply"
         aws-seconds:
             type: number
@@ -14,6 +13,7 @@ on:
         repo-to-deploy:
             description: "Sngle worksapce"
             required: false
+            default: "CHINA"
             type: string
 jobs:
     get-env:
@@ -21,4 +21,4 @@ jobs:
        steps:
           - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
           - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"  
-          - run: echo "haha---${{ github.event.inputs.tf-apply }}---"  
+          - run: echo "haha---${{ github.event.inputs.repo-to-deploy }}---"  
