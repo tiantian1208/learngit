@@ -1,0 +1,23 @@
+name: update
+on:
+   workflow_call:
+      input:
+        tf-apply:
+            type:boolean
+            default: false
+            description: "Run terraform apply"
+        aws-seconds:
+            type:number
+            default:1000
+            required:false
+            description: "Duration in seconds"
+        repo-to-deploy:
+            description:"Sngle worksapce"
+            required:false
+            type:string
+jobs:
+    get-env:
+       runs-on: ubuntu-latest
+       steps:
+          - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+          - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"    
