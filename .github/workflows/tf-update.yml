@@ -3,18 +3,18 @@ on:
    workflow_call:
       input:
         tf-apply:
-            type:boolean
+            type: boolean
             default: false
             description: "Run terraform apply"
         aws-seconds:
-            type:number
-            default:1000
-            required:false
+            type: number
+            default: 1000
+            required: false
             description: "Duration in seconds"
         repo-to-deploy:
-            description:"Sngle worksapce"
-            required:false
-            type:string
+            description: "Sngle worksapce"
+            required: false
+            type: string
 jobs:
     get-env:
        runs-on: ubuntu-latest
