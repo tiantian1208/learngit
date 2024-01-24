@@ -11,6 +11,10 @@ on:
         - cschleiden
       message:
         required: true
+        default: "CHINA"
+      message1:
+        required: false
+        default: "USA"
       use-emoji:
         type: boolean
         description: Include 🎉🤣 emojis
