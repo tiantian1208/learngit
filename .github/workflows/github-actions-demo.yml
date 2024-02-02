@@ -21,6 +21,7 @@ jobs:
       - run: bats -v
       - name: List files in the repository
         run: |
+          echo ${GITHUB_ACTIONS}
           echo ${{ github.workspace }}
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
